@@ -69,7 +69,7 @@ public class VoiceActivity extends AppCompatActivity {
      *
      * For example : https://myurl.io/accessToken.php
      */
-    private static final String TWILIO_ACCESS_TOKEN_SERVER_URL = "TWILIO_ACCESS_TOKEN_SERVER_URL";
+    private static final String TWILIO_ACCESS_TOKEN_SERVER_URL = "http://aurorascienceexploration.com:8000/accessToken";
 
     private static final int MIC_PERMISSION_REQUEST_CODE = 1;
 
@@ -704,6 +704,7 @@ public class VoiceActivity extends AppCompatActivity {
      * Get an access token from your Twilio access token server
      */
     private void retrieveAccessToken() {
+
         Ion.with(this).load(TWILIO_ACCESS_TOKEN_SERVER_URL + "?identity=" + identity)
                 .asString()
                 .setCallback((e, accessToken) -> {
@@ -717,5 +718,7 @@ public class VoiceActivity extends AppCompatActivity {
                                 Snackbar.LENGTH_LONG).show();
                     }
                 });
+
+
     }
 }

@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -39,6 +40,8 @@ public class VoiceFirebaseMessagingService extends FirebaseMessagingService {
 
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
+
+            /*
             boolean valid = Voice.handleMessage(this, remoteMessage.getData(), new MessageListener() {
                 @Override
                 public void onCallInvite(@NonNull CallInvite callInvite) {
@@ -56,6 +59,8 @@ public class VoiceFirebaseMessagingService extends FirebaseMessagingService {
                 Log.e(TAG, "The message was not a valid Twilio Voice SDK payload: " +
                         remoteMessage.getData());
             }
+
+             */
         }
     }
 

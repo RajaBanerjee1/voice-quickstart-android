@@ -15,6 +15,7 @@ import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -59,7 +60,7 @@ import kotlin.Unit;
 public class VoiceActivity extends AppCompatActivity {
 
     private static final String TAG = "VoiceActivity";
-    private static final String identity = "alice";
+    private static String identity = "";
     /*
      * You must provide the URL to the publicly accessible Twilio access token server route
      *
@@ -700,10 +701,17 @@ public class VoiceActivity extends AppCompatActivity {
                 .isAtLeast(Lifecycle.State.STARTED);
     }
 
+    public static String getAndroidID(Context context)
+    {
+        return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+    }
+
     /*
      * Get an access token from your Twilio access token server
      */
     private void retrieveAccessToken() {
+
+        identity = getAndroidID(getApplicationContext()) ;
 
         Ion.with(this).load(TWILIO_ACCESS_TOKEN_SERVER_URL + "?identity=" + identity)
                 .asString()

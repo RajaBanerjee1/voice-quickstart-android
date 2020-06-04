@@ -711,7 +711,7 @@ public class VoiceActivity extends AppCompatActivity {
      */
     private void retrieveAccessToken() {
 
-        identity = getAndroidID(getApplicationContext()) ;
+        identity = "A_" + getAndroidID(getApplicationContext()) ;
 
         Ion.with(this).load(TWILIO_ACCESS_TOKEN_SERVER_URL + "?identity=" + identity)
                 .asString()

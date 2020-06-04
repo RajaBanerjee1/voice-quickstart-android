@@ -41,7 +41,7 @@ public class VoiceFirebaseMessagingService extends FirebaseMessagingService {
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
 
-            /*
+
             boolean valid = Voice.handleMessage(this, remoteMessage.getData(), new MessageListener() {
                 @Override
                 public void onCallInvite(@NonNull CallInvite callInvite) {
@@ -60,7 +60,7 @@ public class VoiceFirebaseMessagingService extends FirebaseMessagingService {
                         remoteMessage.getData());
             }
 
-             */
+
         }
     }
 
